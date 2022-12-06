@@ -17,7 +17,30 @@ async function sendApiRequest (){
     };
 
 function useApiData(dados){
+    document.querySelector("#title").innerHTML += dados.title;
     document.querySelector("#content").innerHTML = dados.explanation;
-    // document.querySelector("#content").innerHTML = dados.title;
-    document.querySelector("#content").innerHTML += `<img src="${dados.url}">`;
+    if (dados.media_type === "image") {
+        document.querySelector("#content").innerHTML +=
+        `<section id="imagem">
+            <img src="${dados.url}" alt="">
+        </section>
+    `
+    } else {
+        document.querySelector("#content").innerHTML =
+       ` <section id="img">
+            <iframe width="560" height="315" src="${dados.url}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </section>`
+    }
+    // // document.querySelector("#content").innerHTML = dados.title;
+    // document.querySelector("#content").innerHTML += `<img src="${dados.url}">`;
+    // document.querySelector("#content").innerHTML =
+    //    ` <section id="imagem">
+    //         <iframe width="560" height="315" src="${dados.url}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    //     </section>;`
 }
+
+
+
+
+// // composicao.classList.add("destaques");
+// //             detalhes.classList.remove("destaques")
