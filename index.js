@@ -17,7 +17,7 @@ async function sendApiRequest (){
     };
 
 function useApiData(dados){
-    document.querySelector("#title").innerHTML += dados.title;
+    document.querySelector("#title").innerHTML = dados.title;
     document.querySelector("#content").innerHTML = dados.explanation;
     if (dados.media_type === "image") {
         document.querySelector("#content").innerHTML +=
